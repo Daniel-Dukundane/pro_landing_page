@@ -1,9 +1,14 @@
-.header{
+ .header{
 nav{
-    padding: 24px;
+padding: 1.0625rem 1.5rem;
+    
 }
 
     &__logo{
+        img{
+            width: 8.8125rem;
+            height: 1.375rem;
+        }
 
     }
     &__menu{
@@ -22,12 +27,45 @@ nav{
     &__links{
         a{
             font-size: $font_sm;
+            font-weight: 400;
+            position: relative;
             color: $grayishBlue;
+            transition: color 300ms ease-in-out;
+            &:not(:last-child){
+                margin-right: 32px;
+            }
+            &:hover{
+                color: $darkBlue;
+                &::before{
+                   opacity: 1;
+                }
+                
+            }
+            &::before{
+                content: "";
+                background: linear-gradient(to right,$limeGreen ,$brightCyan );
+                position:absolute;
+                display: block;
+                left: 0;
+                right: 0;
+                height: 5px;
+                bottom: -30px;
+                opacity: 0;
+                transition: opacity 300ms ease-in-out;
+                
+
+            }
+            
 
         }
+       
     }
     &__cta{
         font-size: $font_sm;
         color: $white;
+        transition: opacity 300ms ease-in-out;
+        &:hover{
+            opacity: 0.75;
+        }
     }
 }

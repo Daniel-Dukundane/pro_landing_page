@@ -1,3 +1,4 @@
+
 html {
     font-size: 100%;
     box-sizing: border-box;
@@ -36,12 +37,27 @@ a, a:visited , a:hover{
 }
 
 .button, button{
-    padding: 1rem 1.875rem;
+    padding: 0.875rem 2.1875rem;
     border-radius: 50px;
     cursor: pointer;
     background:linear-gradient(to right,$limeGreen ,$brightCyan );
     border: 0;
     color: white;
     font-weight: 400;
+}
+
+//visibility
+.hide-for-mobile{
+    //hide for mobile or tablets
+    @include breakpoint-down(medium){
+        display: none;
+    }
+}
+
+.hide-for-desktops{
+    //hide for desktops
+    @include breakpoint-up(large){
+        display: none;
+    }
 }
 
