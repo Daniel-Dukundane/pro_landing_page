@@ -19,6 +19,10 @@ body {
   font-weight: 300;
 }
 
+body.noScroll {
+  overflow: hidden;
+}
+
 a, a:visited, a:hover {
   text-decoration: none;
 }
@@ -47,6 +51,11 @@ a, a:visited, a:hover {
           align-items: center;
 }
 
+.container {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .button, button {
   padding: 0.875rem 2.1875rem;
   border-radius: 50px;
@@ -70,8 +79,59 @@ a, a:visited, a:hover {
   }
 }
 
+.header__menu {
+  background-color: white;
+  width: calc(100% - 3rem);
+  padding: 1.625rem;
+  position: absolute;
+  margin-top: 1.5rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border-radius: 5px;
+}
+
+.header__menu a {
+  color: #2d314d;
+  display: block;
+  padding: 0.625rem;
+  text-align: center;
+}
+
 .header nav {
-  padding: 1.0625rem 1.5rem;
+  padding-top: 1.0625rem;
+  padding-bottom: 1.0625rem;
+  position: relative;
+  background-color: white;
+}
+
+.header.open .overlay {
+  display: block;
+}
+
+.header.open .header__toggle > span:first-child {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.header.open .header__toggle > span:nth-child(2) {
+  opacity: 0;
+}
+
+.header.open .header__toggle > span:last-child {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.header .overlay {
+  opacity: 0;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#2d314d), to(transparent));
+  background-image: linear-gradient(#2d314d, transparent);
+  position: fixed;
+  top: 0rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .header__logo img {
@@ -79,15 +139,19 @@ a, a:visited, a:hover {
   height: 1.375rem;
 }
 
-.header__menu > span {
+.header__toggle > span {
   display: block;
   width: 26px;
   height: 2px;
   background-color: #2d314d;
+  -webkit-transform-origin: 3px 1px;
+          transform-origin: 3px 1px;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
-.header__menu > span:not(:last-child) {
-  margin-bottom: 3px;
+.header__toggle > span:not(:last-child) {
+  margin-bottom: 5px;
 }
 
 .header__links a {
@@ -135,5 +199,77 @@ a, a:visited, a:hover {
 
 .header__cta:hover {
   opacity: 0.75;
+}
+
+.has-fade {
+  visibility: hidden;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  -webkit-animation: fade-in 300ms ease-in-out 1 forwards;
+          animation: fade-in 300ms ease-in-out 1 forwards;
+}
+
+@-webkit-keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  -webkit-animation: fade-out 300ms ease-in-out 1 forwards;
+          animation: fade-out 300ms ease-in-out 1 forwards;
 }
 /*# sourceMappingURL=style.css.map */
