@@ -22,6 +22,10 @@ body{
     }
     
 }
+
+h1,h2,h3{
+    margin-top: 0px;
+}
 a, a:visited , a:hover{
     text-decoration: none;
     
@@ -41,8 +45,11 @@ a, a:visited , a:hover{
 }
 
 .container{
-    padding-left: 1.5rem;
+    padding-top: 2.25rem;
     padding-right: 1.5rem;
+    padding-bottom: 2.25rem;
+    padding-left: 1.5rem;
+    
   }
 
 .button, button{
@@ -51,8 +58,17 @@ a, a:visited , a:hover{
     cursor: pointer;
     background:linear-gradient(to right,$limeGreen ,$brightCyan );
     border: 0;
-    color: white;
     font-weight: 400;
+    display: inline-block;
+    font-size: $font_sm;
+    color: $white;
+    &:hover{
+        transition: opacity 300ms ease-in-out;
+        &:hover {
+          opacity: 0.75;
+        }
+
+    }
 }
 
 //visibility
